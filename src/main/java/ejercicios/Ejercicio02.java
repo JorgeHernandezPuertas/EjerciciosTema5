@@ -25,8 +25,8 @@ public class Ejercicio02 {
     public static void main(String[] args) {
 
         // Declaro las variables que necesito
-        int numPersonas;
-        double alturaPersona;
+        int numPersonas, inferiorMedia = 0, superiorMedia = 0;
+        double alturaPersona, sumaTotalAlturas = 0, mediaAlturas;
         
         // Pido el número de personas
         numPersonas = pedirPersonas();
@@ -34,10 +34,34 @@ public class Ejercicio02 {
         // Declaro e inicializo el array de alturas de personas con el número de personas
         double [] alturasPersonas = new double [numPersonas];
         
-        // Pido el valor de la altura de cada elemento del array
-        for(double aux:alturasPersonas){
-            aux = pedirAltura();
+        // Pido el valor de la altura de cada elemento del array y lo voy sumando.
+        for(int i = 0; i < alturasPersonas.length; i++){
+            alturasPersonas[i] = pedirAltura();
+            sumaTotalAlturas += alturasPersonas[i];
         }
+        
+        // Muestro cada valor del array para comprobar
+        for(double aux:alturasPersonas){
+            System.out.print(aux + " - ");
+        }
+        System.out.println("\n-----------------------------------------------");
+        
+        // Con la suma total calculo la media y la imprimo para comprobar
+        mediaAlturas = sumaTotalAlturas/numPersonas;
+        System.out.println("La media de alturas es " + mediaAlturas + "cms");
+        System.out.println("-----------------------------------------------");
+        
+        // Calculo cuántas personas tienen una altura superior o inferior a la media
+        for(double aux:alturasPersonas){
+            if (aux < mediaAlturas){
+                inferiorMedia++;
+            } else {
+                superiorMedia++;
+            }
+        }
+        // Muestro cuántas personas son inferiores o superiores a la media
+        System.out.println("Hay " + inferiorMedia + " personas con altura inferior a la media");
+        System.out.println("Hay " + superiorMedia + " personas con altura superior a la media");
         
     }
 
@@ -57,6 +81,7 @@ public class Ejercicio02 {
             } catch (InputMismatchException ime) {
                 System.out.println("Introduce un entero.");
             }
+            teclado.nextLine(); // Limpio buffer
         } while (numPersonas < 0);
         return numPersonas;
     }
@@ -72,6 +97,7 @@ public class Ejercicio02 {
             } catch (InputMismatchException ime) {
                 System.out.println("Introduce un décimal.");
             }
+            teclado.nextLine(); // Limpio buffer
         } while (alturaPersona < 0);
         return alturaPersona;
     }
