@@ -27,33 +27,33 @@ public class Ejercicio02 {
         // Declaro las variables que necesito
         int numPersonas, inferiorMedia = 0, superiorMedia = 0;
         double alturaPersona, sumaTotalAlturas = 0, mediaAlturas;
-        
+
         // Pido el número de personas
         numPersonas = pedirPersonas();
-        
+
         // Declaro e inicializo el array de alturas de personas con el número de personas
-        double [] alturasPersonas = new double [numPersonas];
-        
+        double[] alturasPersonas = new double[numPersonas];
+
         // Pido el valor de la altura de cada elemento del array y lo voy sumando.
-        for(int i = 0; i < alturasPersonas.length; i++){
+        for (int i = 0; i < alturasPersonas.length; i++) {
             alturasPersonas[i] = pedirAltura();
             sumaTotalAlturas += alturasPersonas[i];
         }
-        
+
         // Muestro cada valor del array para comprobar
-        for(double aux:alturasPersonas){
+        for (double aux : alturasPersonas) {
             System.out.print(aux + " - ");
         }
         System.out.println("\n-----------------------------------------------");
-        
+
         // Con la suma total calculo la media y la imprimo para comprobar
-        mediaAlturas = sumaTotalAlturas/numPersonas;
+        mediaAlturas = sumaTotalAlturas / numPersonas;
         System.out.println("La media de alturas es " + mediaAlturas + "cms");
         System.out.println("-----------------------------------------------");
-        
+
         // Calculo cuántas personas tienen una altura superior o inferior a la media
-        for(double aux:alturasPersonas){
-            if (aux < mediaAlturas){
+        for (double aux : alturasPersonas) {
+            if (aux < mediaAlturas) {
                 inferiorMedia++;
             } else {
                 superiorMedia++;
@@ -62,7 +62,7 @@ public class Ejercicio02 {
         // Muestro cuántas personas son inferiores o superiores a la media
         System.out.println("Hay " + inferiorMedia + " personas con altura inferior a la media");
         System.out.println("Hay " + superiorMedia + " personas con altura superior a la media");
-        
+
     }
 
     // Declaro e inicializo el objeto Scanner
