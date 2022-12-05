@@ -120,7 +120,7 @@ public class Ejercicio05 {
         int positivos = contarPositivos(array);
         // Calculo la media
         // Controlo la posible Arithmetic Exception
-        int mediaPositivos = (positivos == 0) ? 0 : (sumaPositivos / positivos);
+        double mediaPositivos = (positivos == 0) ? 0 : ((double)sumaPositivos / positivos);
         // Muestro por consola la media de los positivos
         System.out.println("La media de los positivos es " + mediaPositivos);
     }
@@ -138,7 +138,7 @@ public class Ejercicio05 {
         int negativos = contarNegativos(array);
         // Calculo la media
         // Controlo la posible Arithmetic Exception
-        int mediaNegativos = (negativos == 0) ? 0 : (sumaNegativos / negativos);
+        double mediaNegativos = (negativos == 0) ? 0 : ((double)sumaNegativos / negativos);
         // Muestro por consola la media de los negativos
         System.out.println("La media de los negativos es " + mediaNegativos);
     }
