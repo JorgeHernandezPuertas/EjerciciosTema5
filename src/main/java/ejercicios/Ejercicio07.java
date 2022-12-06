@@ -25,6 +25,25 @@ public class Ejercicio07 {
      */
     public static void main(String[] args) {
 
+        // Pido el tamaño de los arrays
+        int tamaño = pedirTamaños();
+        
+        // Declaro e inicializo los dos arrays aleatoriamente
+        int[] array1 = new int[tamaño];
+        int[] array2 = new int[tamaño];
+        rellenarAleatorio(array1);
+        rellenarAleatorio(array2);
+        
+        // Creo el array multiplicación
+        int[] arrayMultiplicacion = multiplicarArrays(array1, array2);
+        
+        // Imprimo los arrays para verlos
+        System.out.println("Array 1: ");
+        imprimirArray(array1);
+        System.out.println("Array 2: ");
+        imprimirArray(array2);
+        System.out.println("Array multiplicación: ");
+        imprimirArray(arrayMultiplicacion);
     }
 
     // Creo el objeto de clase aleatorio (de tipo Random)
@@ -63,7 +82,17 @@ public class Ejercicio07 {
     // de los índices de otros dos.
     private static int[] multiplicarArrays(int[] array1, int[] array2){
         int[] arrayFinal = new int[array1.length];
-        
+        for(int i = 0; i < arrayFinal.length; i++){
+            arrayFinal[i] = array1[i] * array2[i];
+        }
         return arrayFinal;
+    }
+    
+    // Método para imprimir arrays
+    private static void imprimirArray(int[] array){
+        for(int aux:array){
+            System.out.print(aux + " - ");
+        }
+        System.out.println("\n--------------------------------------");
     }
 }
