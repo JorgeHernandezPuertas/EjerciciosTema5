@@ -5,6 +5,8 @@
 package ejercicio24;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -111,9 +113,61 @@ public class ListaReproduccion {
             return null;
         }
     }
-    
+
     // Método que cambia las canciones de posición
-    public void cambiarCancion(int posicion, Cancion cancion){
-        this.lista.set(posicion, cancion);
+    public void cambiarCancion(int posicion, Cancion cancion) {
+        if (posicion < this.lista.size()) {
+            this.lista.set(posicion, cancion);
+        }
     }
+
+    // Método para añadir una canción
+    public void grabarCancion(Cancion cancion) {
+        this.lista.add(cancion);
+    }
+
+    // Método que elimina la canción según su posicion
+    public boolean eliminaCancion(int posicion) {
+        if (posicion < this.lista.size()){
+            this.lista.remove(posicion);
+            return true;
+        }
+        return false;
+    }
+
+    // Método que elimina la canción introducida como parametro
+    public boolean eliminaCancion(Cancion cancion) {
+        return this.lista.remove(cancion);
+    }
+
+    // Método para imprimir la lista de las canciones
+    public static void imprimirLista(ListaReproduccion tmp){
+        String texto ="";
+        int contadorCanciones = 0;
+        for(Cancion cancion:tmp.getLista()){
+            texto += ++contadorCanciones + cancion.toString() + "\n";
+        }
+        System.out.println(texto);
+    }
+    
+    // Método que busca la canción introducida y devuelve su posición
+    public int buscarCancion(Cancion cancion){
+        return this.lista.indexOf(cancion);
+    }
+    
+    
+    
+    
+    
+    
+    // Método que ordena la lista por título
+    public void ordenarPorTitulo(){
+        
+    }
+    
+    
+    
+    
+    
+    
 }
