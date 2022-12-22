@@ -116,7 +116,7 @@ public class ListaReproduccion {
 
     // Método que cambia las canciones de posición
     public void cambiarCancion(int posicion, Cancion cancion) {
-        if (posicion < this.lista.size()) {
+        if (posicion < this.lista.size() && posicion > -1) {
             this.lista.set(posicion, cancion);
         }
     }
@@ -128,7 +128,7 @@ public class ListaReproduccion {
 
     // Método que elimina la canción según su posicion
     public boolean eliminaCancion(int posicion) {
-        if (posicion < this.lista.size()){
+        if (posicion < this.lista.size() && posicion > -1) {
             this.lista.remove(posicion);
             return true;
         }
@@ -141,33 +141,26 @@ public class ListaReproduccion {
     }
 
     // Método para imprimir la lista de las canciones
-    public static void imprimirLista(ListaReproduccion tmp){
-        String texto ="";
+    public static void imprimirLista(ListaReproduccion tmp) {
+        String texto = "";
         int contadorCanciones = 0;
-        for(Cancion cancion:tmp.getLista()){
+        for (Cancion cancion : tmp.getLista()) {
             texto += ++contadorCanciones + cancion.toString() + "\n";
         }
         System.out.println(texto);
     }
-    
+
     // Método que busca la canción introducida y devuelve su posición
-    public int buscarCancion(Cancion cancion){
+    public int buscarCancion(Cancion cancion) {
         return this.lista.indexOf(cancion);
     }
-    
-    
-    
-    
-    
-    
+
     // Método que ordena la lista por título
-    public void ordenarPorTitulo(){
-        
+    public void ordenarPorTitulo() {
+        // Ordena la lista por título de las canciones
+        // c1 y c2 son dos alias que usara para una comparación para ordenar
+        Collections.sort(this.lista, (c1, c2) -> c1.getNombre().
+                compareToIgnoreCase(c2.getNombre()));
     }
-    
-    
-    
-    
-    
-    
+
 }
