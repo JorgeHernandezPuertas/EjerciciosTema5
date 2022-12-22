@@ -162,5 +162,21 @@ public class ListaReproduccion {
         Collections.sort(this.lista, (c1, c2) -> c1.getNombre().
                 compareToIgnoreCase(c2.getNombre()));
     }
+    
+    // Método que ordena la lista por duración
+    public void ordenarPorDuracion() {
+        // Ordena la lista por duración de las canciones
+        // c1 y c2 son dos alias que usara para una comparación para ordenar
+        Collections.sort(this.lista, (c1, c2) -> c1.getDuracion() - c2.getDuracion());
+    }
+    
+    // Método que hace una búsqueda binaria
+    public int buscarPorTitulo(String titulo){
+        Cancion aux = new Cancion();
+        aux.setNombre(titulo); // Pongo el titulo a buscar a la cancion aux
+        ordenarPorTitulo(); // Ordeno por título la lista antes de la búsqueda binaria
+        return Collections.binarySearch(lista, aux, (c1, c2) -> c1.getNombre().
+                compareToIgnoreCase(c2.getNombre()));
+    }
 
 }
