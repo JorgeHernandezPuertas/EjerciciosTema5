@@ -42,6 +42,7 @@ public class ReservarAsientosAvion {
     // Método que imprime el menú por teclado
     private static void imprimirMenu(){
         String menu = "";
+        
     }
     
 }
