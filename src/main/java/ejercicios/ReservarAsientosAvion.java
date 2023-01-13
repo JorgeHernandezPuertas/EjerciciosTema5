@@ -89,7 +89,7 @@ public class ReservarAsientosAvion {
             try {
                 imprimirMenu();
                 opcion = teclado.nextInt();
-                if (opcion < PRIMER_ASIENTO || opcion > ULTIMO_ASIENTO) {
+                if (opcion < VALOR_SALIDA || opcion > ULTIMO_ASIENTO) {
                     System.out.println("Introduce un asiento válido.");
                     System.out.println("--------------------------------------");
                 }
