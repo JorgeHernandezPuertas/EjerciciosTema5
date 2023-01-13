@@ -35,7 +35,7 @@ public class ReservarAsientosAvion {
         do {
             // Pido la opción al usuario
             opcion = pedirOpcion();
-            if (opcion >= PRIMER_ASIENTO && opcion <= ULTIMO_ASIENTO){
+            if (opcion >= PRIMER_ASIENTO && opcion <= ULTIMO_ASIENTO) {
                 cambiarAsiento(opcion);
             }
         } while (opcion != VALOR_SALIDA);
@@ -56,27 +56,32 @@ public class ReservarAsientosAvion {
                 // Creo la variable estaDisponible que dependiendo de si la matriz booleana
                 // indica que esta ocupado o no cambia a disponible u ocupado
                 String estaDispobile = (asientosOcupados[i][j] == false) ? "Disponible" : "Ocupado";
-                stringMatriz.append(numeroAsiento).append(". ").
-                        append(estaDispobile).append("\t");
+                if (j == 1) {
+                    stringMatriz.append(numeroAsiento).append(". ").
+                            append(estaDispobile).append("\t\t\t");
+                } else {
+                    stringMatriz.append(numeroAsiento).append(". ").
+                            append(estaDispobile).append("\t");
+                }
                 numeroAsiento++;
             }
             stringMatriz.append("\t|\n|\t");
         } // Cuadro la ultima fila vacia para que cierre bien la caja 
-        stringMatriz.append("\t\t\t\t\t\t\t\t\t|");
+        stringMatriz.append("\t\t\t\t\t\t\t\t\t\t\t|");
         return stringMatriz.toString();
     }
 
     // Método que imprime el menú por teclado
     private static void imprimirMenu() {
         String menu = """
-                      ---------------------------------------------------------------------------------
-                      |                               Asientos del avión:                             |     
-                      ---------------------------------------------------------------------------------
+                      -------------------------------------------------------------------------------------------------
+                      |                                       Asientos del avión:                                     |
+                      -------------------------------------------------------------------------------------------------
                       %s
-                      ---------------------------------------------------------------------------------
-                      |          º Introduce el número del asiento que quieras reservar/cancelar      |
-                      |          º Introduce '0' si quieres salir de la aplicación                    |
-                      ---------------------------------------------------------------------------------
+                      -------------------------------------------------------------------------------------------------
+                      |           º Introduce el número del asiento que quieras reservar/cancelar                     |
+                      |            º Introduce '0' si quieres salir de la aplicación                                  |
+                      -------------------------------------------------------------------------------------------------
                       """.formatted(stringMatriz());
         System.out.println(menu);
     }
@@ -103,7 +108,7 @@ public class ReservarAsientosAvion {
     }
 
     // Método que cambia el asiento a disponible/ocupado dada una opción
-    private static void cambiarAsiento(int opcion){
+    private static void cambiarAsiento(int opcion) {
         // Modifico la opcion para que corresponda al elemento de la matriz
         opcion--;
         // Uso el número de la opción para calcular en que columna y fila esta
