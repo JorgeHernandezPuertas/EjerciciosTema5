@@ -48,16 +48,18 @@ public class MatrizCasillasVecinas {
     private static void imprimirVecinos(int fila, int columna, int[][] matriz) {
         for (int i = (fila - 1); i <= (fila + 1); i++) {
             for (int j = (columna - 1); j <= (columna + 1); j++) {
+                // Si está dentro de la matriz
                 if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
+                    // Si no es el elemento seleccionado
                     if (i != fila || j != columna) {
                         System.out.print(matriz[i][j] + " ");
                     } else {
                         System.out.print("*" + " ");
                     }
-                } else {
-                    System.out.print("x" + " ");
+                } else { // Si está fuera de la matriz imprimo un X
+                    System.out.print("X" + " ");
                 }
-            }
+            } // Salto de linea en la fila
             System.out.println("");
         }
 
