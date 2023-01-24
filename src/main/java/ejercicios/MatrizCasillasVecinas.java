@@ -46,24 +46,28 @@ public class MatrizCasillasVecinas {
 
     // Método que guarda los elementos vecinos de un elemento dado en una matriz
     private static void imprimirVecinos(int fila, int columna, int[][] matriz) {
-        if (fila < matriz.length && fila >= 0 && columna < matriz.length && columna >= 0) {
-            for (int i = (fila - 1); i <= (fila + 1); i++) {
-                for (int j = (columna - 1); j <= (columna + 1); j++) {
-                    if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
-                        if (i != fila || j != columna) {
-                            System.out.print(matriz[i][j] + ", ");
-                        }
+        for (int i = (fila - 1); i <= (fila + 1); i++) {
+            for (int j = (columna - 1); j <= (columna + 1); j++) {
+                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
+                    if (i != fila || j != columna) {
+                        System.out.print(matriz[i][j] + " ");
+                    } else {
+                        System.out.print("*" + " ");
                     }
+                } else {
+                    System.out.print("x" + " ");
                 }
             }
+            System.out.println("");
         }
+
     }
 
     // Método para rellenar la matriz de numéros aleatorios
     private static void rellenarMatriz(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                matriz[i][j] = aleatorio.nextInt(0, 100);
+                matriz[i][j] = aleatorio.nextInt(0, 10);
             }
         }
     }
