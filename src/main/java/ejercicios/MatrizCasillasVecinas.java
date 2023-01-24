@@ -44,7 +44,7 @@ public class MatrizCasillasVecinas {
     private static Random aleatorio = new Random();
     private static Scanner teclado = new Scanner(System.in);
 
-    // Método que guarda los elementos vecinos de un elemento dado en una matriz
+    // Método que imprime los vecinos del elemento
     private static void imprimirVecinos(int fila, int columna, int[][] matriz) {
         for (int i = (fila - 1); i <= (fila + 1); i++) {
             for (int j = (columna - 1); j <= (columna + 1); j++) {
