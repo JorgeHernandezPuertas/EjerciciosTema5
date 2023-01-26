@@ -47,5 +47,40 @@ public class OrdenacionBusqueda {
         paises.forEach(System.out::println);
         
         
+        // Búsqueda por orden natural (por nombre)
+        // La lista donde buscar la información esta ordenada previamente según
+        // el criterio del orden natural (nombre) --> Comparable en País
+        Collections.sort(paises);
+        System.out.println("------------- Búsqueda binaria ------------------");
+        System.out.println("------------- Lista ordenada según orden natural (nombre) ------------------");
+        paises.forEach(System.out::println);
+        Pais objetoBuscar = new Pais();
+        // Lista ordenada por nombre, búsqueda por nombre, key en nombre
+        objetoBuscar.setNombre("Portugal");
+        int posicion = Collections.binarySearch(paises, objetoBuscar);
+        System.out.println("La posicion es " + posicion);
+        System.out.println("---------------------------------------------------");
+        
+        
+        // Si intento buscar en la lista con un valor que no es nombre se puede
+        // obtener una posicion errónea
+        objetoBuscar.setNombre("");
+        objetoBuscar.setPoblacion(23);
+        posicion = Collections.binarySearch(paises, objetoBuscar);
+        System.out.println("La posicion es " + posicion);
+        System.out.println("---------------------------------------------------");
+        
+        // Si ordeno la lista por un criterio y busco por otro, el resultado es inesperado
+        
+        // Ordeno y busco por otro criterio que no es el natural
+        System.out.println("------------ Ordenación y búsqueda por población ------------------");
+        Collections.sort(paises, criterioPoblacion);
+        paises.forEach(System.out::println);
+        objetoBuscar.setPoblacion(146);
+        posicion = Collections.binarySearch(paises, objetoBuscar, criterioPoblacion);
+        System.out.println("El país que tiene 146 millones es " + paises.get(posicion));
+        
+        
+        
     }
 }
