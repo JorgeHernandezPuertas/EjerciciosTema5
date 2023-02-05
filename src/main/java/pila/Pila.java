@@ -118,7 +118,7 @@ public class Pila<T> {
     // Método para imprimir la pila por consola en orden de salida
     public void imprimirPila() {
         for (int i = this.pila.size() - 1; i >= 0; i--) {
-            System.out.println("| " + this.pila.get(i) + " |");
+            System.out.println("|\t" + this.pila.get(i) + "\t|");
         }
         System.out.println("--------------------------------------------------");
     }
